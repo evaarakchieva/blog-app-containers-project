@@ -1,7 +1,7 @@
 FROM openjdk:11 AS BUILD_IMAGE
 RUN apt update && apt install maven -y
-ADD ../../ containers-project
-RUN cd containers-project && mvn install
+RUN git clone https://github.com/evaarakchieva/vprofile-project.git
+RUN cd vprofile-project && git checkout docker && mvn install
 
 FROM tomcat:9-jre11
 LABEL "Project"="vprofile"
