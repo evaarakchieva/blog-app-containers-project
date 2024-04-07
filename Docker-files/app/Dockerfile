@@ -1,7 +1,7 @@
 FROM openjdk:11 AS BUILD_IMAGE
 RUN apt update && apt install maven -y
-ADD ../../ vprofile-project-containers
-RUN cd vprofile-project-containers && mvn install
+ADD ../../ containers-project
+RUN cd containers-project && mvn install
 
 FROM tomcat:9-jre11
 LABEL "Project"="vprofile"
